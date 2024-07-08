@@ -13,16 +13,14 @@ export default class SalesDaoMysql extends Mysql {
         #createTable() {
         const query = `CREATE TABLE IF NOT EXISTS ${this.table}(
         id_sale INT PRIMARY KEY,
-        id_product int, foreign key (id_product) references PRODUCTS(id_product),
-        id_client int, foreign key (id_client)	references CLIENTS(id_client),
-        id_subsidiary int, foreign key (id_subsidiary) references SUBSIDIARIES(id_subsidiary))`  
+        id_product int NOT NULL)`  
         this.connection.query(query)
     }
 
     async getAllSales(){
-      const query =  `SELECT * FROM ${this.table}`
-      const [result] = await this.connection.promise().query(query)
-      console.log(result)
-      return result
-  }
+        const query =  `SELECT * FROM ${this.table}`
+        const [result] = await this.connection.promise().query(query)
+        console.log(result)
+        return result
+    }
 }
