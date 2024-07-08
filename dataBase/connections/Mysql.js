@@ -1,14 +1,9 @@
 import mysql from 'mysql2'
-
+import config from './Mysql.config.js'
 export default class Mysql {
 
     constructor() {
-        this.connection = mysql.createConnection({
-            host: 'localhost',  //entendiendo que la base se ejecuta en la misma PC
-            user: 'root',
-            password: '',
-            database: 'himitsubd'
-        })
+        this.connection = mysql.createConnection(config)
         this.tryConnection()
     }
     tryConnection() {
