@@ -3,12 +3,7 @@ import config from './Mysql.config.js'
 export default class Mysql {
 
     constructor() {
-        this.connection = mysql.createConnection({
-            host: 'localhost', 
-            user: 'root',
-            password: '',
-            database: 'himitsubd'
-        })
+        this.connection = mysql.createConnection(config)
         this.tryConnection()
     }
     tryConnection() {
