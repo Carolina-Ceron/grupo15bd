@@ -10,11 +10,11 @@ export default class UsersDaoMysql extends Mysql {
     }
     // creacion de tablas
 
-    #createTable() {
-        const query = `CREATE TABLE IF NOT EXISTS ${this.table}
+        #createTable() {
+        const query = `CREATE TABLE IF NOT EXISTS ${this.table}(
         id_user INT PRIMARY KEY,
         name VARCHAR(50) NOT NULL,
-        mail VARCHAR(50) NOT NULL`  
+        mail VARCHAR(50) NOT NULL)`  
         this.connection.query(query)
     }
 
